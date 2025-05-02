@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.sefali.WelcomeController" prefWidth="400" prefHeight="400"
+            style="-fx-background-color: linear-gradient(to bottom right, #6a11cb, #2575fc);">
+    <children>
+        <!-- Title Label -->
+        <Label text="Welcome to Payroll Management" layoutX="40" layoutY="50" prefWidth="320" alignment="CENTER">
+            <font>
+                <Font name="Segoe UI Semibold" size="26"/>
+            </font>
+            <effect>
+                <DropShadow color="#33000000" radius="4" spread="0.2" />
+            </effect>
+            <style>
+                -fx-text-fill: white;
+                -fx-font-weight: bold;
+                -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4,0,0,2);
+            </style>
+        </Label>
+
+        <!-- Sign Up Button -->
+        <Button text="Sign Up" layoutX="140" layoutY="150" prefWidth="120" prefHeight="40" onAction="#goToSignup"
+                style="-fx-background-radius: 25;
+                       -fx-background-color: linear-gradient(to right, #ff512f, #dd2476);
+                       -fx-text-fill: white;
+                       -fx-font-size: 16px;
+                       -fx-font-weight: bold;
+                       -fx-cursor: hand;">
+            <effect>
+                <DropShadow color="#b3000000" radius="8" spread="0.3" />
+            </effect>
+        </Button>
+
+        <!-- Login Button -->
+        <Button text="Log In" layoutX="140" layoutY="210" prefWidth="120" prefHeight="40" onAction="#goToLogin"
+                style="-fx-background-radius: 25;
+                       -fx-background-color: linear-gradient(to right, #00c6ff, #0072ff);
+                       -fx-text-fill: white;
+                       -fx-font-size: 16px;
+                       -fx-font-weight: bold;
+                       -fx-cursor: hand;">
+            <effect>
+                <DropShadow color="#b3000000" radius="8" spread="0.3" />
+            </effect>
+        </Button>
+    </children>
+</AnchorPane>

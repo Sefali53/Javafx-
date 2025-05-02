@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.sefali.PayrollController"
+            style="-fx-background-color: linear-gradient(to bottom right, #74ebd5, #ACB6E5);">
+
+    <fx:define>
+        <Insets fx:id="insets" top="20" right="20" bottom="20" left="20"/>
+    </fx:define>
+
+    <!-- Top Title with Back Button -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20" padding="$insets">
+            <Button text="← Back to Dashboard" onAction="#handleBackToDashboard"
+                    style="-fx-background-radius: 15; -fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;"
+                    prefWidth="150">
+                <effect>
+                    <DropShadow color="#33000000" radius="4" spread="0.3"/>
+                </effect>
+            </Button>
+            <Label text="Payroll Management System"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;">
+                <effect>
+                    <DropShadow color="#33000000" radius="4" spread="0.3"/>
+                </effect>
+                <font>
+                    <Font name="Segoe UI Semibold" size="28"/>
+                </font>
+            </Label>
+        </HBox>
+    </top>
+
+    <!-- Center Content -->
+    <center>
+        <VBox spacing="15.0" padding="$insets" alignment="TOP_CENTER"
+              style="-fx-background-color: rgba(255, 255, 255, 0.85); -fx-background-radius: 20;">
+
+            <!-- Payroll Table -->
+            <TableView fx:id="payrollTable" prefHeight="300" prefWidth="900"
+                       style="-fx-background-radius: 15; -fx-border-radius: 15;">
+                <columns>
+                    <TableColumn fx:id="colEmployeeId" text="Employee ID" prefWidth="100"/>
+                    <TableColumn fx:id="colFirstName" text="First Name" prefWidth="150"/>
+                    <TableColumn fx:id="colLastName" text="Last Name" prefWidth="150"/>
+                    <TableColumn fx:id="colPosition" text="Position" prefWidth="150"/>
+                    <TableColumn fx:id="colBasicSalary" text="Basic Salary" prefWidth="120">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="basicSalary"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colAllowances" text="Allowances" prefWidth="120"/>
+                    <TableColumn fx:id="colDeductions" text="Deductions" prefWidth="120"/>
+                    <TableColumn fx:id="colFinalSalary" text="Net Salary" prefWidth="120"/>
+                </columns>
+            </TableView>
+
+            <!-- Charts Section -->
+            <HBox spacing="20" alignment="CENTER" style="-fx-padding: 10;">
+                <VBox spacing="10" alignment="CENTER">
+                    <Label text="Salary Distribution" style="-fx-font-weight: bold;"/>
+                    <PieChart fx:id="salaryPieChart" prefWidth="400" prefHeight="300"/>
+                </VBox>
+
+                <VBox spacing="10" alignment="CENTER">
+                    <Label text="Employee Salaries" style="-fx-font-weight: bold;"/>
+                    <BarChart fx:id="salaryBarChart" prefWidth="500" prefHeight="300">
+                        <xAxis>
+                            <CategoryAxis label="Employees"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Salary"/>
+                        </yAxis>
+                    </BarChart>
+                </VBox>
+            </HBox>
+
+            <!-- Action Buttons -->
+            <HBox spacing="20" alignment="CENTER">
+                <Button text="Generate Payroll" onAction="#handleGeneratePayroll"
+                        style="-fx-background-radius: 20; -fx-background-color: linear-gradient(to right, #56ab2f, #a8e063); -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px;"
+                        prefWidth="200" prefHeight="40">
+                    <effect>
+                        <DropShadow color="#33000000" radius="6" spread="0.3"/>
+                    </effect>
+                </Button>
+
+                <Button text="Export CSV" onAction="#handleExportCSV"
+                        style="-fx-background-radius: 20; -fx-background-color: linear-gradient(to right, #2980b9, #6dd5fa); -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px;"
+                        prefWidth="150" prefHeight="40">
+                    <effect>
+                        <DropShadow color="#33000000" radius="6" spread="0.3"/>
+                    </effect>
+                </Button>
+
+                <Button text="Generate Payslips" onAction="#handleGeneratePayslips"
+                        style="-fx-background-radius: 20; -fx-background-color: linear-gradient(to right, #8E2DE2, #4A00E0); -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px;"
+                        prefWidth="150" prefHeight="40">
+                    <effect>
+                        <DropShadow color="#33000000" radius="6" spread="0.3"/>
+                    </effect>
+                </Button>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.sefali.SignupController" prefWidth="400" prefHeight="400"
+            style="-fx-background-color: linear-gradient(to bottom right, #fc5c7d, #6a82fb);">
+    <children>
+        <!-- Card-like VBox for the form -->
+        <VBox layoutX="40" layoutY="40" prefWidth="320" prefHeight="320" spacing="18" alignment="CENTER"
+              style="-fx-background-color: rgba(255,255,255,0.92);
+                     -fx-background-radius: 22;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 16, 0, 0, 4);">
+            <children>
+                <!-- Title Label -->
+                <Label text="Sign Up" alignment="CENTER">
+                    <font>
+                        <Font name="Segoe UI Semibold" size="28"/>
+                    </font>
+                    <style>
+                        -fx-text-fill: linear-gradient(to right, #fc5c7d, #6a82fb);
+                        -fx-font-weight: bold;
+                        -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.13), 3, 0, 0, 1);
+                    </style>
+                </Label>
+
+                <!-- Username Field -->
+                <TextField fx:id="usernameField" promptText="Username" prefWidth="240" prefHeight="35"
+                           style="-fx-background-radius: 17;
+                                  -fx-border-radius: 17;
+                                  -fx-border-color: #6a82fb;
+                                  -fx-border-width: 2;
+                                  -fx-font-size: 15px;
+                                  -fx-padding: 0 14 0 14;"/>
+
+                <!-- Password Field -->
+                <PasswordField fx:id="passwordField" promptText="Password" prefWidth="240" prefHeight="35"
+                               style="-fx-background-radius: 17;
+                                      -fx-border-radius: 17;
+                                      -fx-border-color: #fc5c7d;
+                                      -fx-border-width: 2;
+                                      -fx-font-size: 15px;
+                                      -fx-padding: 0 14 0 14;"/>
+
+                <!-- Confirm Password Field -->
+                <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password" prefWidth="240" prefHeight="35"
+                               style="-fx-background-radius: 17;
+                                      -fx-border-radius: 17;
+                                      -fx-border-color: #6a82fb;
+                                      -fx-border-width: 2;
+                                      -fx-font-size: 15px;
+                                      -fx-padding: 0 14 0 14;"/>
+
+                <!-- Sign Up Button -->
+                <Button text="Sign Up" onAction="#handleSignup" prefWidth="240" prefHeight="40"
+                        style="-fx-background-radius: 21;
+                               -fx-background-color: linear-gradient(to right, #43e97b, #38f9d7);
+                               -fx-text-fill: #2b2b2b;
+                               -fx-font-size: 17px;
+                               -fx-font-weight: bold;
+                               -fx-cursor: hand;">
+                    <effect>
+                        <DropShadow color="#b3000000" radius="7" spread="0.2" />
+                    </effect>
+                </Button>
+
+                <!-- Message Label -->
+                <Label fx:id="messageLabel" alignment="CENTER" wrapText="true" prefWidth="240"
+                       style="-fx-text-fill: #e53935; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
